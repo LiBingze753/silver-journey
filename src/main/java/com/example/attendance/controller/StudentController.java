@@ -1,8 +1,8 @@
-package com.example.attentance.controller;
+package com.example.attendance.controller;
 
-import com.example.attentance.entity.Student;
-import com.example.attentance.service.StudentService;
-import com.example.attentance.util.Result;
+import com.example.attendance.entity.Student;
+import com.example.attendance.service.StudentService;
+import com.example.attendance.util.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

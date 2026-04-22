@@ -1,4 +1,4 @@
-package com.example.attentance.util;
+package com.example.attendance.util;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,4 +1,4 @@
-package com.example.attentance;
+package com.example.attendance;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

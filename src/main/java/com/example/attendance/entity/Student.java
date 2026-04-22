@@ -1,4 +1,4 @@
-package com.example.attentance.entity;
+package com.example.attendance.entity;
 import lombok.Data;
 @Data
 public class Student {

@@ -1,7 +1,7 @@
-package com.example.attentance.service.impl;
+package com.example.attendance.service.impl;
 
-import com.example.attentance.service.StudentService;
-import com.example.attentance.entity.Student;
+import com.example.attendance.service.StudentService;
+import com.example.attendance.entity.Student;
 import org.springframework.stereotype.Service;
 
 @Service

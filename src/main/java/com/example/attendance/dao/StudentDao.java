@@ -1,6 +1,6 @@
-package com.example.attentance.dao;
+package com.example.attendance.dao;
 
-import com.example.attentance.entity.Student;
+import com.example.attendance.entity.Student;
 import org.springframework.stereotype.Repository;
 
 @Repository

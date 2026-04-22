@@ -1,50 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
+    <!-- 1. 继承 Spring Boot 父项目 -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>4.0.4</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <!-- 建议使用稳定的版本，如 2.7.18 或 3.2.5 -->
+        <version>2.7.18</version>
+        <relativePath/>
     </parent>
+
     <groupId>com.example</groupId>
-    <artifactId>attentance-system</artifactId>
+    <artifactId>attendance-system</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>attentance-system</name>
-    <description>attentance-system</description>
-    <url/>
-    <licenses>
-        <license/>
-    </licenses>
-    <developers>
-        <developer/>
-    </developers>
-    <scm>
-        <connection/>
-        <developerConnection/>
-        <tag/>
-        <url/>
-    </scm>
+    <name>attendance-system</name>
+    <description>Demo project for Spring Boot</description>
+
     <properties>
-        <java.version>17</java.version>
+        <java.version>17</java.version> <!-- 或 11，取决于你的 JDK -->
     </properties>
+
     <dependencies>
+        <!-- 2. Spring Boot Web Starter -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-webmvc</artifactId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <!-- 版本由父项目管理，无需指定 -->
         </dependency>
 
+        <!-- 3. Spring Boot JDBC Starter -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-webmvc-test</artifactId>
-            <scope>test</scope>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+            <!-- 版本由父项目管理，无需指定 -->
         </dependency>
 
+        <!-- 4. MySQL Connector/J -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.33</version>   <!-- 显式指定版本 -->
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- 可选：Lombok 简化代码 -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <scope>true</scope>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- 可选：测试依赖 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

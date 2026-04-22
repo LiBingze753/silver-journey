@@ -1,6 +1,6 @@
-package com.example.attentance.service;
+package com.example.attendance.service;
 
-import com.example.attentance.entity.Student;
+import com.example.attendance.entity.Student;
 
 public interface StudentService {
     String createStudent(Student student);
