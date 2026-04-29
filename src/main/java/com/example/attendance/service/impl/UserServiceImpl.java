@@ -1,7 +1,7 @@
 package com.example.attendance.service.impl;
 
-import com.example.attendance.dao.UserDao;
 import com.example.attendance.entity.User;
+import com.example.attendance.repository.UserRepository;
 import com.example.attendance.service.UserService;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -9,52 +9,50 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
-    private final UserDao userDao;
+    private final UserRepository userRepository;
 
-    // 构造器注入（推荐）
-    public UserServiceImpl(UserDao userDao) {
-        this.userDao = userDao;
+    public UserServiceImpl(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
     @Override
-    public void createUser(User user) {
-        // 简单校验
+    public User createUser(User user) {
         if (user.getUsername() == null || user.getUsername().isEmpty()) {
             throw new RuntimeException("用户名不能为空");
         }
-        userDao.insert(user);
+        return userRepository.save(user);
     }
 
     @Override
     public User getUserById(Long id) {
-        return userDao.findById(id);
+        return userRepository.findById(id).orElse(null);
     }
 
     @Override
     public User getUserByUsername(String username) {
-        return userDao.findByUsername(username);
-    }
-
-    @Override
-    public List<User> getAllTeachers() {
-        return userDao.findAllTeachers();
+        return userRepository.findByUsername(username);
     }
 
     @Override
     public List<User> getAllUsers() {
-        return userDao.findAll();
+        return userRepository.findAll();
     }
 
     @Override
-    public void updateUser(User user) {
-        if (user.getId() == null) {
-            throw new RuntimeException("用户ID不能为空");
+    public List<User> getAllTeachers() {
+        return userRepository.findByRole("TEACHER");
+    }
+
+    @Override
+    public User updateUser(User user) {
+        if (!userRepository.existsById(user.getId())) {
+            throw new RuntimeException("用户不存在");
         }
-        userDao.update(user);
+        return userRepository.save(user);
     }
 
     @Override
     public void deleteUser(Long id) {
-        userDao.deleteById(id);
+        userRepository.deleteById(id);
     }
 }

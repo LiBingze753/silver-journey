@@ -1,6 +1,18 @@
 spring:
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/attendance_system?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://localhost:3306/attendance_system?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
     username: root
     password: 050927Lbz@
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        # 下面这一行可以删除或注释掉，因为 Hibernate 6 会自动选择正确的方言
+        # dialect: org.hibernate.dialect.MySQL8Dialect
+    open-in-view: false
+server:
+  port: 8080
