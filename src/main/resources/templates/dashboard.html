@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>系统首页</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container">
+    <h1>欢迎使用考勤管理系统</h1>
+    <p>你好，<span th:text="${#authentication.name}"></span>！</p>
+    <p>你的角色：<span th:text="${#authentication.authorities}"></span></p>
+    <a th:href="@{/logout}">退出登录</a>
+</div>
+</body>
+</html>
